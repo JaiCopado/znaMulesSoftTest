@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="632e38d3-06a5-4c16-818a-2da307affe04" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="hellocopadoFlow" doc:id="c29bd226-7a55-483b-bf7b-39733cacb42e" >
+		<http:listener doc:name="Listener" doc:id="23e202cf-5338-46e1-9ecc-bd6aa4f9ce47" config-ref="HTTP_Listener_config" path="/hello"/>
+		<logger level="INFO" doc:name="Logger" doc:id="23a264dd-4c12-4d09-9594-3875446b1c8b" message="hello copado 1"/>
+		<set-payload value="hello copado" doc:name="Set Payload" doc:id="418a528c-d799-468e-980e-eb4492961212" />
+	</flow>
+</mule>
